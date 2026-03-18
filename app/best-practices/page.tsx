@@ -10,6 +10,7 @@
 import type { Metadata } from "next";
 import Card from "../components/Card";
 import CodeExample from "../components/CodeExample";
+import BestPracticesSidebar from "./BestPracticesSidebar";
 
 export const metadata: Metadata = {
   title: "Best Practices",
@@ -40,7 +41,10 @@ function Row({
 
 export default function BestPracticesPage() {
   return (
-    <div className="max-w-4xl mx-auto px-4 py-12">
+    <div className="max-w-7xl mx-auto px-4 py-12">
+      <div className="flex gap-10 items-start">
+        <BestPracticesSidebar />
+        <div className="flex-1 min-w-0">
       <h1 className="text-4xl font-bold mb-4">✅ Best Practices</h1>
       <p className="text-gray-600 dark:text-gray-400 text-lg mb-10">
         A condensed reference of the most important rules for building fast, safe, and
@@ -50,7 +54,7 @@ export default function BestPracticesPage() {
       {/* ────────────────────────────────────────────────────────
          SECTION 1: Server vs Client Components
       ──────────────────────────────────────────────────────── */}
-      <section className="mb-14">
+      <section id="server-vs-client" className="mb-14">
         <h2 className="text-2xl font-bold mb-1">1. Server vs Client Components</h2>
         <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
           The single biggest decision you make for every component.
@@ -127,7 +131,7 @@ export default function Counter() {       // ← needs useState
       {/* ────────────────────────────────────────────────────────
          SECTION 2: TypeScript Practices
       ──────────────────────────────────────────────────────── */}
-      <section className="mb-14">
+      <section id="typescript" className="mb-14">
         <h2 className="text-2xl font-bold mb-1">2. TypeScript</h2>
         <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
           TypeScript + Next.js = errors caught at compile time, not in production.
@@ -222,7 +226,7 @@ export const metadata: Metadata = {
       {/* ────────────────────────────────────────────────────────
          SECTION 3: Performance
       ──────────────────────────────────────────────────────── */}
-      <section className="mb-14">
+      <section id="performance" className="mb-14">
         <h2 className="text-2xl font-bold mb-1">3. Performance</h2>
         <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
           Next.js has performance built in — but you can easily undo those gains.
@@ -308,7 +312,7 @@ await revalidateTag("posts");          // re-render all fetches tagged "posts"`}
       {/* ────────────────────────────────────────────────────────
          SECTION 4: Data Fetching
       ──────────────────────────────────────────────────────── */}
-      <section className="mb-14">
+      <section id="data-fetching" className="mb-14">
         <h2 className="text-2xl font-bold mb-1">4. Data Fetching</h2>
         <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
           Fetch as close to where the data is used as possible.
@@ -358,7 +362,7 @@ function UserCard() {
       {/* ────────────────────────────────────────────────────────
          SECTION 5: Security
       ──────────────────────────────────────────────────────── */}
-      <section className="mb-14">
+      <section id="security" className="mb-14">
         <h2 className="text-2xl font-bold mb-1">5. Security</h2>
         <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
           Common vulnerabilities and how Next.js helps you avoid them.
@@ -433,7 +437,7 @@ export async function GET() {
       {/* ────────────────────────────────────────────────────────
          SECTION 6: SEO & Metadata
       ──────────────────────────────────────────────────────── */}
-      <section className="mb-14">
+      <section id="seo" className="mb-14">
         <h2 className="text-2xl font-bold mb-1">6. SEO & Metadata</h2>
         <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
           Next.js has a built-in Metadata API — use it instead of writing raw <code>&lt;head&gt;</code> tags.
@@ -483,7 +487,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       {/* ────────────────────────────────────────────────────────
          SECTION 7: Error Handling
       ──────────────────────────────────────────────────────── */}
-      <section className="mb-14">
+      <section id="error-handling" className="mb-14">
         <h2 className="text-2xl font-bold mb-1">7. Error Handling</h2>
         <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
           Next.js has dedicated files for handling errors and missing routes at each segment level.
@@ -543,7 +547,7 @@ export default function NotFound() {
       {/* ────────────────────────────────────────────────────────
          SECTION 8: Accessibility
       ──────────────────────────────────────────────────────── */}
-      <section className="mb-14">
+      <section id="accessibility" className="mb-14">
         <h2 className="text-2xl font-bold mb-1">8. Accessibility (a11y)</h2>
         <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
           Accessible apps are better for everyone and ranked higher by search engines.
@@ -574,7 +578,7 @@ export default function NotFound() {
       {/* ────────────────────────────────────────────────────────
          SECTION 9: Project Organisation
       ──────────────────────────────────────────────────────── */}
-      <section className="mb-14">
+      <section id="project-org" className="mb-14">
         <h2 className="text-2xl font-bold mb-1">9. Project Organisation</h2>
         <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
           A consistent folder structure saves hours of confusion as a project grows.
@@ -617,7 +621,7 @@ export default function NotFound() {
       {/* ────────────────────────────────────────────────────────
          SECTION 10: Quick-Reference Checklist
       ──────────────────────────────────────────────────────── */}
-      <section className="mb-12">
+      <section id="checklist" className="mb-12">
         <h2 className="text-2xl font-bold mb-4">10. Pre-Launch Checklist</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <Card title="🚀 Performance" variant="success">
@@ -686,6 +690,190 @@ export default function NotFound() {
           </Card>
         </div>
       </section>
+
+      {/* ────────────────────────────────────────────────────────
+         SECTION 11: Measuring Performance & Efficiency
+      ──────────────────────────────────────────────────────── */}
+      <section id="measuring-performance" className="mb-14">
+        <h2 className="text-2xl font-bold mb-1">11. Measuring Performance &amp; Efficiency</h2>
+        <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
+          You can&apos;t improve what you don&apos;t measure. Use these tools to find bottlenecks before users do.
+        </p>
+
+        {/* Tool 1: next build */}
+        <div className="mb-6">
+          <h3 className="text-lg font-semibold mb-2">🏗️ Tool 1 — <code className="bg-gray-100 dark:bg-gray-800 px-1 rounded text-base">next build</code> Output</h3>
+          <Card title="Read the build table on every deploy" variant="warning">
+            <p className="text-sm">
+              Run <code>npm run build</code>. Next.js prints the size of every route.
+              Keep <strong>First Load JS under ~100 kB</strong> per page.
+              A <strong>●</strong> means dynamic (server-rendered per request); a <strong>○</strong> means static (pre-rendered — fastest).
+            </p>
+          </Card>
+          <div className="mt-3">
+            <CodeExample
+              title="Interpreting build output"
+              language="bash"
+              code={`$ npm run build
+
+Route (app)                 Size     First Load JS
+┌ ○ /                       5.2 kB        92.4 kB   ✅ good
+├ ○ /about                  2.1 kB        89.3 kB   ✅ good
+├ ● /blog/[slug]            3.4 kB        91.6 kB   ✅ good
+└ ● /dashboard              8.7 kB   ⚠️  142 kB   ❌ too big!
+
+# ○ = static  (pre-rendered at build — fastest)
+# ● = dynamic (rendered on each request)
+
+# Fix big pages:
+# → Replace heavy imports with dynamic()
+# → Move data-only code to Server Components
+# → Run Bundle Analyzer to find the culprit`}
+            />
+          </div>
+        </div>
+
+        {/* Tool 2: Bundle Analyzer */}
+        <div className="mb-6">
+          <h3 className="text-lg font-semibold mb-2">📦 Tool 2 — Bundle Analyzer</h3>
+          <Card title="Visualise exactly what's in your JS bundle" variant="info">
+            <p className="text-sm">
+              Generates an interactive treemap showing every module by size.
+              Instantly reveals which library is bloating your page.
+            </p>
+          </Card>
+          <div className="mt-3 space-y-3">
+            <CodeExample
+              title="Install & configure"
+              language="bash"
+              code={`npm install --save-dev @next/bundle-analyzer`}
+            />
+            <CodeExample
+              title="next.config.ts"
+              code={`import bundleAnalyzer from "@next/bundle-analyzer";
+
+const withBundleAnalyzer = bundleAnalyzer({
+  enabled: process.env.ANALYZE === "true",
+});
+
+export default withBundleAnalyzer({
+  // ...your existing config
+});
+
+// Run:  ANALYZE=true npm run build
+// → Opens an interactive treemap in your browser`}
+            />
+          </div>
+        </div>
+
+        {/* Tool 3: Lighthouse */}
+        <div className="mb-6">
+          <h3 className="text-lg font-semibold mb-2">🔦 Tool 3 — Lighthouse</h3>
+          <Card title="5-score audit built into Chrome DevTools" variant="default">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-1 text-sm mt-1">
+              {[
+                ["Performance",    "LCP, FID, CLS — page load speed"],
+                ["Accessibility",  "Keyboard nav, contrast, ARIA"],
+                ["Best Practices", "HTTPS, no console errors"],
+                ["SEO",            "Meta tags, crawlability"],
+                ["PWA",            "Offline support, installability"],
+              ].map(([name, desc]) => (
+                <p key={name} className="text-sm"><strong>{name}:</strong> {desc}</p>
+              ))}
+            </div>
+          </Card>
+          <div className="mt-3">
+            <CodeExample
+              title="Running Lighthouse"
+              language="bash"
+              code={`# Method 1: Chrome DevTools (no install needed)
+# F12 → Lighthouse tab → Analyze page load
+
+# Method 2: CLI
+npm install -g lighthouse
+lighthouse http://localhost:3000 --view
+
+# Method 3: Google PageSpeed Insights (production)
+# Visit: pagespeed.web.dev → enter your URL`}
+            />
+          </div>
+        </div>
+
+        {/* Tool 4: Core Web Vitals */}
+        <div className="mb-6">
+          <h3 className="text-lg font-semibold mb-2">📊 Tool 4 — Core Web Vitals</h3>
+          <Card title="Google's 3 ranking metrics — poor scores hurt SEO" variant="warning">
+            <div className="space-y-3 text-sm mt-1">
+              {[
+                { abbr: "LCP", color: "text-green-600",  name: "Largest Contentful Paint",  desc: "How fast main content loads.",          good: "< 2.5 s" },
+                { abbr: "FID", color: "text-blue-600",   name: "First Input Delay",          desc: "How fast the page responds to clicks.",  good: "< 100 ms" },
+                { abbr: "CLS", color: "text-purple-600", name: "Cumulative Layout Shift",    desc: "How much the layout jumps around.",      good: "< 0.1" },
+              ].map(({ abbr, color, name, desc, good }) => (
+                <div key={abbr} className="flex items-start gap-3">
+                  <span className={`font-mono font-bold w-10 shrink-0 ${color}`}>{abbr}</span>
+                  <span><strong>{name}</strong> — {desc} <span className="text-green-600 font-medium">Good: {good}</span></span>
+                </div>
+              ))}
+            </div>
+          </Card>
+        </div>
+
+        {/* Tool 5: React DevTools Profiler */}
+        <div className="mb-6">
+          <h3 className="text-lg font-semibold mb-2">⚛️ Tool 5 — React DevTools Profiler</h3>
+          <Card title="Find slow or unnecessary re-renders" variant="info">
+            <p className="text-sm">
+              Install the <strong>React Developer Tools</strong> browser extension.
+              The Profiler tab records a flame chart of every render — wide bars = slow,
+              yellow = re-rendered when it didn&apos;t need to.
+            </p>
+          </Card>
+          <div className="mt-3">
+            <CodeExample
+              title="Fix unnecessary re-renders"
+              code={`// React.memo — skip re-render if props didn't change
+const ProductCard = React.memo(function ProductCard({ product }) {
+  return <div>{product.name}</div>;
+});
+
+// useMemo — cache an expensive calculation
+const sortedList = useMemo(
+  () => items.sort((a, b) => a.price - b.price),
+  [items]   // only re-compute when items changes
+);
+
+// useCallback — stable function reference (prevents child re-renders)
+const handleClick = useCallback(() => {
+  doSomething(id);
+}, [id]);   // only recreates when id changes`}
+            />
+          </div>
+        </div>
+
+        {/* Quick checklist */}
+        <div className="p-4 rounded-xl bg-blue-50 dark:bg-blue-950 border border-blue-200 dark:border-blue-800">
+          <p className="text-sm font-semibold text-blue-700 dark:text-blue-300 mb-3">⚡ Performance Measurement Checklist</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-1 text-sm text-blue-900 dark:text-blue-200">
+            {[
+              "npm run build — check all pages < 100 kB",
+              "ANALYZE=true npm run build — no surprise deps",
+              "Lighthouse score ≥ 90 on Performance",
+              "LCP < 2.5s, CLS < 0.1",
+              "React Profiler — no unnecessary re-renders",
+              "No plain <img> or <a> tags — use next/* versions",
+              "Heavy libs loaded with dynamic()",
+              "Data fetches run in parallel via Promise.all",
+            ].map((item) => (
+              <div key={item} className="flex items-start gap-2">
+                <span className="text-blue-500 mt-0.5 shrink-0">☐</span>
+                <span>{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+        </div>
+      </div>
     </div>
   );
 }

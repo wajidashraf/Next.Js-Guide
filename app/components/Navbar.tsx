@@ -49,7 +49,9 @@ const navItems: NavItem[] = [
   { label: "Forms", href: "/forms" },
   { label: "Images", href: "/images-fonts" },
   { label: "Best Practices", href: "/best-practices" },
+  { label: "Supabase", href: "/supabase-guide" },
   { label: "GitHub & Deploy", href: "/github-deploy" },
+  { label: "NestJs", href: "/nestjs-guide" },
 ];
 
 export default function Navbar() {
@@ -79,7 +81,7 @@ export default function Navbar() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-black/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="max-w-8xl mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo / Brand */}
           <Link href="/" className="font-bold text-lg text-blue-600">
